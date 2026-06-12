@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Othello — Strategy Board Game
 
 A polished desktop implementation of the classic Othello / Reversi board game,
@@ -116,3 +117,7 @@ making depth-4 search fast enough for fluid gameplay.
 ## License
 
 MIT — free to use, modify, and distribute.
+=======
+# Othello-AI-Game
+AI-powered Othello game built with Python and Tkinter, featuring Minimax, Alpha-Beta Pruning, Move Ordering, advanced heuristics, multilingual support, and save/load functionality.
+>>>>>>> 1635654f0c2c589de738835a79ac3132d4d38183
