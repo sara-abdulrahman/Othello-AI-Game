@@ -151,6 +151,7 @@ class SettingsScreen(tk.Frame):
         colors  = app.colors()
         strings = app.strings()
         super().__init__(master, bg=colors["bg_window"], width=500, height=700)
+        
         self.app = app
         self.pack_propagate(False)
 
@@ -356,24 +357,26 @@ class SettingsScreen(tk.Frame):
     def _build_contributors(self, colors: dict, is_arabic: bool):
         """Display the contributor list neatly."""
         contributors = [
-            ("Sara M. Abdelrahman",   "ساره محمد عبدالرحمن"),
-            ("Sajed O. Abdelrahman",  "ساجد أسامه عبدالرحمن"),
-            ("Mariam H. Mohamed",     "مريم حسن محمد"),
-            ("Mahmoud E. Mahmoud",    "محمود عصام محمود"),
-            ("Habiba O. Saadeldeen", "حبيبة أسامة سعد الدين"),
+            ("Sara Muhammad",   "ساره محمد "),
+            ("Sajed Osama",  "ساجد أسامه "),
+            ("Mariam Hassan",     "مريم حسن "),
+            ("Mahmoud Essam",    "محمود عصام "),
+            ("Habiba Osama", "حبيبة أسامة  "),
         ]
         container = tk.Frame(self, bg=colors["bg_window"])
         container.pack(pady=(0, 4))
 
-        for english_name, arabic_name in contributors:
-            display_name = arabic_name if is_arabic else english_name
-            tk.Label(
-                container,
-                text=localize(display_name, is_arabic),
-                font=FONT_SMALL,
-                bg=colors["bg_window"],
-                fg=colors["label_fg"],
-            ).pack()
+        for i, (english_name, arabic_name) in enumerate(contributors):
+         display_name = arabic_name if is_arabic else english_name
+         row, col = divmod(i, 2)
+         tk.Label(
+             container,
+             text=localize(display_name, is_arabic),
+             font=FONT_SMALL,
+             bg=colors["bg_window"],
+             fg=colors["label_fg"],
+             padx=8,
+             ).grid(row=row, column=col, sticky="w")
 
     def _apply_setting(self, key: str, value):
         self.app.settings[key] = value

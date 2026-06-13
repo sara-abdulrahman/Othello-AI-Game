@@ -45,7 +45,7 @@ class App:
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("Othello")
-        self.root.resizable(False, False)
+        self.root.resizable(True, True)
 
         # Persistent user preferences
         self.settings: dict = {
